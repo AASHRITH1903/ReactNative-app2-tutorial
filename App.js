@@ -1,23 +1,35 @@
-import { StatusBar } from "expo-status-bar";
+import "react-native-gesture-handler";
 import React from "react";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+
+import SecondScreen from "./app/screens/SecondScreen";
+import WelcomeScreen from "./app/screens/WelcomeScreen";
+import ThirdScreen from "./app/screens/ThirdScreen";
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <TextInput
-        style={{ height: 40, width: 150, borderColor: "grey", borderWidth: 1 }}
-      />
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="WelcomeScreen" options={{ title: "Welcome" }}>
+          {(props) => (
+            <WelcomeScreen {...props} extraData={{ msg: "hello message" }} />
+          )}
+        </Stack.Screen>
+
+        <Stack.Screen
+          name="SecondScreen"
+          options={{ title: "Furniture" }}
+          component={SecondScreen}
+        />
+        <Stack.Screen
+          name="ThirdScreen"
+          options={{ title: "ThirdScreen" }}
+          component={ThirdScreen}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

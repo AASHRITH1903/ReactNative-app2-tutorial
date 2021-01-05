@@ -1,0 +1,27 @@
+API's :
+StyleSheet
+Alert,
+Platform,
+StatusBar,
+Dimensions,
+
+flex
+flexDirection
+justifyContent // main axis
+alignItems // secondary axis , determines positioning along the secondary axis
+flexWrap // default is no-wrap , set this to wrap and use alignContent
+alignContent // determines the positioning overall works only if flexWrap is enabled
+
+alignSelf // specific to child component
+
+flexBasis // = width (horizontal) , = height (vertical)
+flexGrow // flex = 1
+flexShrink // flex = -1
+
+position // default "relative" change pos. relative to cur. without affecting other comp.
+
+navigation : (sn = screen name)
+navigate("sn")
+push("sn")
+goBack()
+popToTop()
